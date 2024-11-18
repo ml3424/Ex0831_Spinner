@@ -7,6 +7,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,13 +15,13 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener, AdapterView.OnItemSelectedListener {
 
     TextView tVname, tVfName, tVdate, tVphone_n;
     ListView listV;
     Spinner spin;
 
-    String[] classes = {"Class 1", "Class 2", "Class 3", "Class 4"}
+    String[] classes = {"Class 1", "Class 2", "Class 3", "Class 4"};
 
     String[] class1_name = {
             "Aiden Thomas", "Grace Harris", "Jackson Lee", "Lily Scott", "Daniel Carter",
@@ -90,6 +91,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     };
 
     ArrayAdapter<String> adp_listV;
+    int class_selected = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -109,17 +111,49 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         listV.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
 
 
-        /*
-
-         */
-
         ArrayAdapter<String> adp_spin = new ArrayAdapter<String>(this,
                 androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, classes);
         spin.setAdapter(adp_spin);
+        spin.setOnItemSelectedListener(this);
+
     }
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        if(class_selected == 1)
+        {
+            tVname.setText(class1[position][0]);
+            tVfName.setText(class1[position][1]);
+            tVdate.setText(class1[position][2]);
+            tVphone_n.setText(class1[position][3]);
+        }
+        else if(class_selected == 2)
+        {
+            tVname.setText(class2[position][0]);
+            tVfName.setText(class2[position][1]);
+            tVdate.setText(class2[position][2]);
+            tVphone_n.setText(class2[position][3]);
+        }
+        else if(class_selected == 3)
+        {
+            tVname.setText(class3[position][0]);
+            tVfName.setText(class3[position][1]);
+            tVdate.setText(class3[position][2]);
+            tVphone_n.setText(class3[position][3]);
+        }
+        else
+        {
+            tVname.setText(class4[position][0]);
+            tVfName.setText(class4[position][1]);
+            tVdate.setText(class4[position][2]);
+            tVphone_n.setText(class4[position][3]);
+        }
+
+
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         listV.setOnItemClickListener(this);
         listV.setChoiceMode (ListView.CHOICE_MODE_SINGLE);
 
@@ -140,6 +174,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             adp_listV = new ArrayAdapter<String>(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, class4_name);
         }
 
+        class_selected = position + 1;
         listV.setAdapter(adp_listV);
     }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {}
 }

@@ -13,9 +13,10 @@
         android:layout_width="130dp"
         android:layout_height="50dp"
         android:layout_marginStart="25dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="100dp"
         android:layout_marginEnd="27dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/lV"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -35,7 +36,8 @@
         android:layout_width="130dp"
         android:layout_height="50dp"
         android:layout_marginStart="25dp"
-        android:layout_marginTop="220dp"
+        android:layout_marginTop="180dp"
+        android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@+id/lV"
         app:layout_constraintTop_toBottomOf="@+id/spin" />
 
@@ -45,6 +47,7 @@
         android:layout_height="50dp"
         android:layout_marginStart="25dp"
         android:layout_marginTop="25dp"
+        android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@+id/lV"
         app:layout_constraintTop_toBottomOf="@+id/tVname" />
 
@@ -54,6 +57,7 @@
         android:layout_height="50dp"
         android:layout_marginStart="25dp"
         android:layout_marginTop="25dp"
+        android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@+id/lV"
         app:layout_constraintTop_toBottomOf="@+id/tVfName" />
 
@@ -63,6 +67,17 @@
         android:layout_height="50dp"
         android:layout_marginStart="25dp"
         android:layout_marginTop="25dp"
+        android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@+id/lV"
         app:layout_constraintTop_toBottomOf="@+id/tVdate" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:text="Select a class:"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/lV"
+        tools:layout_editor_absoluteY="58dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
